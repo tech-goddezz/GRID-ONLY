@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 30px;
+  font-family: "Poppins";
+}
+
+.grid-container{
+  background-color: #eee;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);  /* same things as--- grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  OR (i.e 1fr of 900px)  */
+                                          /* smae thing as-----grid-template-columns: 150px 150px 150px 150px 150px 150px;  (i.e. 900px divided by 6) */ 
+  grid-template-rows: 100px 200px 300px;
+  gap: 10px;                              /* gap btw every column nd row */
+  align-items: stretch;                          /* vertical arrangement        */
+  justify-items: stretch;                      /* horizontal arrangement      */
+}
+
+/*
+.grid-container div{        /* or use--- .grid-container > div {}   -----
+  background-color: rgb(230, 107, 107);
+  text-align: center;
+  border: 1px solid green;
+  padding: 20px;
+}
+*/
+
+/* using that, we have */
+
+.grid-container > div{
+  background-color: rgb(230, 107, 107);
+  text-align: center;
+  border: 1px solid green;
+  padding: 20px;
+}
+
+.grid-container > div:nth-child(1){    /*----->  meaning, pick the first child(div) element */
+  grid-column: 1 / span 2;             /*------> meaning, start at column 1, nd take up the space of 2 columns   */
+  /*grid-column: 1 / span 3;             ------> meaning, start at column 1, nd take up the space of 3 columns   */
+  /*grid-column: 4 / span 2;             ------> meaning, start at column 4, nd take up the space of 2 columns   */
+} 
+
+.grid-container > div:nth-child(2){    /*----->  meaning, pick the 2nd child(div) element */
+  grid-column: span 3;                /*------>(same as 3 / span 3)--meaning, start at d next available column, nd take up the space of 3 columns   */
+}
+
+.grid-container > div:nth-child(3){    /*----->  meaning, pick the 3rd child(div) element */
+  grid-column: span 1;                /*------>(same as 6 / span 1)--meaning, start at d next available column, nd take up the space of 1 column   */
+
+}
+
+.grid-container > div:nth-child(4){    /*----->  meaning, pick the 4th child(div) element */
+  grid-column: 2 / 6;                  /*------>---meaning, start on d 2nd grip line nd span(take up to/expand) upto the 6th grid line  */
+  align-self: end;                     /*-----> to overide the initial align-items above, nd make this one differnet fom d rest */
+}
+
+.grid-container > div:nth-child(5){    
+  grid-column: span 3;               
+}
+
+.grid-container > div:nth-child(6){    
+  grid-column: span 3;
+  justify-self: end;
+  align-content: end;                
+}
